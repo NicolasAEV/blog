@@ -1,0 +1,25 @@
+<app-filter (filterParams)="recibirNoticiasFiltradas($event)" [noticias]="noticiasFiltradas"></app-filter>
+
+<div *ngIf="isLoading" class="text-center">Cargando...</div>
+
+<div *ngIf="!isLoading && noticiasFiltradas.length === 0 && !noMatches" class="text-center">Sin noticias</div>
+
+<div *ngIf="noMatches" class="alert alert-warning text-center" role="alert"><strong>Sin coincidencias</strong></div>
+
+<h2 class="mt-5 mb-4 text-center">Noticias</h2>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div class="col mb-4" *ngFor="let noticia of noticiasFiltradas">
+    <article class="card h-100 rounded shadow-sm">
+      <img [src]="noticia.image_url" class="card-img-top" alt="Imagen de la noticia">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">{{ noticia.title }}</h5>
+        <p class="card-text">{{ noticia.summary }}</p>
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center bg-light">
+        <small class="text-muted">Fecha publicación: {{ noticia.published_at | date : "dd/MM/yyyy" }}</small>
+        <button class="btn btn-primary btn-sm">Agregar a Favoritos</button>
+      </div>
+    </article>
+  </div>
+</div>

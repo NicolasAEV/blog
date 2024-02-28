@@ -1,0 +1,22 @@
+
+  <form class="row justify-content-center m-2 " [formGroup]="filterForm" >
+    
+    <div class="col-md-6 col-lg-3 mb-2 mt-2">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar..." formControlName="searchQuery">
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-2 mt-2">
+      <div class="form-group">
+        <input type="date" class="form-control" formControlName="selectedDate">
+      </div>
+    </div>
+    <div  class="col-md-12 col-lg-1 mb-2 mt-2">
+      <div class="d-grid gap-2">
+        <button class="btn btn-secondary" type="button" (click)="limpiarFiltro()">Limpiar</button>
+      </div>
+    </div>
+   
+  </form>
+
+

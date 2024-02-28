@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-2 mb-2">
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" (click)="showTab('noticias')" [class.active]="activeTab === 'noticias'">Noticias</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="showTab('favoritos')" [class.active]="activeTab === 'favoritos'">Favoritos</a>
+    </li>
+  </ul>
+  
+  <div *ngIf="activeTab === 'noticias'">
+    <app-principalpage></app-principalpage>
+  </div>
+  
+  <div *ngIf="activeTab === 'favoritos'">
+    <app-favorite></app-favorite>
+  </div>
+</div>
